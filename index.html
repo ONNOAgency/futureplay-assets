@@ -429,6 +429,7 @@ function buildSig(p){
     +'</td></tr>';
 
   const colspan = showGraphic ? 5 : 3;
+  const contentW = showGraphic ? 279 : 377; // lock content column (500 - logo/graphic/spacers) so stretch can't open a gap after the logo
   const clauseRow = withClause
     ? '<tr><td colspan="'+colspan+'" style="padding:10px 0 0 0;'+fc(C)+'line-height:'+cLH+'px;'+EX+'"><span style="'+fc(C)+'line-height:'+cLH+'px;color:'+disclCol+';">'+escHTML(disclaimerText)+'</span></td></tr>'
     : '';
@@ -444,7 +445,7 @@ function buildSig(p){
     +graphicCells
     +'<td width="111" valign="middle" style="width:111px;padding:0;"><img src="'+g("logo")+'" width="111" height="106" alt="FuturePlay Content" style="display:block;width:111px;height:106px;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td>'
     +'<td width="12" style="width:12px;font-size:1px;line-height:1px;">&nbsp;</td>'
-    +'<td valign="middle" style="padding:0;">'
+    +'<td width="'+contentW+'" valign="middle" style="width:'+contentW+'px;padding:0;">'
       +'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">'
         +nameRow+titleRow
         +row("email","mailto:"+p.email,p.email)
@@ -453,6 +454,7 @@ function buildSig(p){
         +linksRow
       +'</table>'
     +'</td>'
+    +'<td style="font-size:1px;line-height:1px;">&nbsp;</td>'
   +'</tr>'
   +clauseRow
   +'</table>';
