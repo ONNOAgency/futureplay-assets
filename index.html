@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>FuturePlay · Email Signature Studio — by ONNO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15171C; --blue:#24B3FF; --blue-d:#0E9BE8; --grey:#5D5D5D;
+    --bg:#EAEEF2; --panel:#FFFFFF; --line:#E2E7EC; --muted:#8A929B;
+    --ok:#1E8E5A; --ok-bg:#E7F5EE; --todo:#B26A00; --todo-bg:#FBF1E0;
+    --soft:#F5F8FA;
+    --shadow:0 1px 2px rgba(20,30,45,.04), 0 12px 32px -16px rgba(20,30,45,.22);
+    --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --disp:"Space Grotesk",var(--sans);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px 96px}
+  a{color:inherit}
+
+  /* hero */
+  header.hero{padding:54px 0 30px}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);
+    font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue-d)}
+  .chev{display:inline-block;color:var(--blue);font-weight:700;letter-spacing:-.08em}
+  h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,5vw,44px);
+    line-height:1.05;letter-spacing:-.02em;margin:14px 0 0}
+  h1 em{font-style:normal;color:var(--blue-d)}
+  .lede{max-width:60ch;margin:16px 0 0;color:#3C434C;font-size:16px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+  .chip{background:var(--panel);border:1px solid var(--line);border-radius:999px;
+    padding:8px 15px;font-size:13px;color:#3C434C;box-shadow:var(--shadow)}
+  .chip b{color:var(--ink);font-weight:600}
+
+  /* sections */
+  section{margin-top:34px}
+  .sec-head{display:flex;gap:16px;align-items:baseline;margin-bottom:16px}
+  .sec-head .n{font-family:var(--disp);font-weight:700;font-size:15px;color:var(--blue-d);
+    letter-spacing:.04em;white-space:nowrap}
+  .sec-head h2{font-family:var(--disp);font-weight:700;font-size:clamp(20px,3vw,26px);
+    letter-spacing:-.01em;margin:0;line-height:1.1}
+  .sec-head p{margin:4px 0 0;color:var(--muted);font-size:14px;max-width:60ch}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;
+    padding:24px;box-shadow:var(--shadow)}
+
+  /* graphic picker */
+  .graphics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .gopt{border:2px solid var(--line);border-radius:14px;padding:14px 10px;cursor:pointer;
+    text-align:center;background:var(--soft);transition:border-color .15s, transform .15s}
+  .gopt:hover{transform:translateY(-1px)}
+  .gopt.sel{border-color:var(--blue)}
+  .gopt img{display:block;width:64px;height:74px;object-fit:contain;margin:0 auto 8px;
+    background:repeating-conic-gradient(#eef2f5 0% 25%, #fff 0% 50%) 50%/14px 14px;border-radius:6px}
+  .gopt span{font-family:var(--disp);font-weight:600;font-size:12px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--grey)}
+  .gopt.sel span{color:var(--blue-d)}
+
+  .toggle{display:flex;gap:12px;align-items:flex-start;margin-top:20px;cursor:pointer}
+  .toggle input{position:absolute;opacity:0;width:0;height:0}
+  .sw{flex:0 0 auto;width:42px;height:24px;border-radius:999px;background:#CDD4DB;position:relative;
+    transition:background .18s;margin-top:1px}
+  .sw::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;
+    background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .18s}
+  .toggle input:checked + .sw{background:var(--blue)}
+  .toggle input:checked + .sw::after{transform:translateX(18px)}
+  .toggle .tx b{display:block;font-family:var(--disp);font-weight:600;font-size:14px}
+  .toggle .tx span{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+  .toggle input:focus-visible + .sw{outline:2px solid var(--blue);outline-offset:2px}
+
+  /* signature cards */
+  #cards{display:flex;flex-direction:column;gap:18px}
+  .sig{background:var(--panel);border:1px solid var(--line);border-radius:18px;
+    box-shadow:var(--shadow);overflow:hidden}
+  .sig-top{display:flex;align-items:center;justify-content:space-between;
+    padding:16px 22px;border-bottom:1px solid var(--line)}
+  .who{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:600;font-size:17px}
+  .tag{font-family:var(--disp);font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px}
+  .tag.ok{background:var(--ok-bg);color:var(--ok)}
+  .tag.todo{background:var(--todo-bg);color:var(--todo)}
+  .sig-body{padding:22px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .full{grid-column:1 / -1}
+  .mini{margin:0 0 6px;font-family:var(--disp);font-weight:600;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--grey)}
+  input[type=text]{width:100%;font:inherit;font-size:15px;color:var(--ink);background:#fff;
+    border:1px solid var(--line);border-radius:11px;padding:11px 13px;transition:border-color .15s, box-shadow .15s}
+  input[type=text]:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(36,179,255,.15)}
+  input::placeholder{color:#AEB6BE}
+
+  .prev-lab{margin:22px 0 9px;font-family:var(--disp);font-weight:600;font-size:11px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--grey)}
+  .preview{border:1px solid var(--line);border-radius:14px;padding:20px;overflow-x:auto;
+    background:repeating-conic-gradient(#eef2f5 0% 25%, #fff 0% 50%) 50%/18px 18px}
+  .preview-inner{background:#fff;display:inline-block;padding:18px;border-radius:8px;min-width:520px}
+
+  .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;align-items:center}
+  .btn{font-family:var(--disp);font-weight:600;font-size:14px;border-radius:11px;padding:11px 18px;
+    cursor:pointer;border:1px solid transparent;transition:transform .12s, background .15s, box-shadow .15s}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--blue);color:#fff;box-shadow:0 6px 16px -8px rgba(36,179,255,.9)}
+  .btn-primary:hover{background:var(--blue-d)}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:#C6CED6}
+  .btn-remove{margin-left:auto;background:transparent;color:var(--muted);font-size:13px;
+    font-weight:500;font-family:var(--sans);padding:8px 10px;border:none}
+  .btn-remove:hover{color:var(--todo)}
+  .src{margin-top:14px;width:100%;min-height:120px;font-family:var(--mono);font-size:11px;line-height:1.5;
+    border:1px solid var(--line);border-radius:11px;padding:12px;background:var(--soft);color:#3C434C;display:none}
+  .src.show{display:block}
+
+  .addbar{display:flex;justify-content:center;margin-top:20px}
+  .btn-add{font-family:var(--disp);font-weight:600;font-size:14px;border:1.5px dashed #BCC6CF;
+    background:#fff;color:var(--blue-d);border-radius:14px;padding:13px 22px;cursor:pointer}
+  .btn-add:hover{border-color:var(--blue);background:#F6FCFF}
+
+  /* install */
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .step h3{font-family:var(--disp);font-weight:700;font-size:16px;margin:0 0 10px;display:flex;gap:8px;align-items:center}
+  .step ol{margin:0;padding-left:20px}
+  .step li{margin:6px 0;color:#3C434C}
+  .step code{font-family:var(--mono);font-size:12px;background:var(--soft);border:1px solid var(--line);
+    border-radius:6px;padding:1px 6px}
+  .note{margin:18px 0 0;color:var(--muted);font-size:13px}
+
+  footer{margin-top:42px;padding-top:22px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:13px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+
+  .savebar{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+  .saved{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ok);
+    background:var(--ok-bg);border-radius:999px;padding:5px 12px;font-weight:600}
+  .saved .dot{width:7px;height:7px;border-radius:50%;background:var(--ok)}
+  .reset{font-size:12.5px;color:var(--muted);text-decoration:underline;cursor:pointer;background:none;border:none}
+  .reset:hover{color:var(--todo)}
+
+  @media (max-width:680px){
+    .grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .graphics{grid-template-columns:1fr 1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow"><span class="chev">&laquo;</span> ONNO Agency · Signature Studio for FuturePlay</span>
+    <h1>Your FuturePlay signature,<br>ready in a <em>minute</em>.</h1>
+    <p class="lede">Pick a graphic, fill in your details, and hit copy. Paste straight into Gmail or Outlook — it arrives looking exactly like the preview. Bookmark this page: your details stay saved on this device, and you can add new people any time.</p>
+    <div class="chips">
+      <span class="chip"><b>Paste</b> into Gmail or Outlook</span>
+      <span class="chip"><b>Saved</b> on this device</span>
+      <span class="chip"><b>Add</b> your whole team</span>
+    </div>
+  </header>
+
+  <!-- 01 — GRAPHIC -->
+  <section>
+    <div class="sec-head">
+      <span class="n">&laquo; 01</span>
+      <div><h2>Choose your graphic</h2><p>This sits on the left of every signature. Pick the one that fits you — it applies to all signatures below.</p></div>
+    </div>
+    <div class="panel">
+      <div class="graphics" id="graphics"></div>
+      <label class="toggle">
+        <input type="checkbox" id="clause" checked>
+        <span class="sw"></span>
+        <span class="tx"><b>Add the legal disclaimer</b><span>Appends the confidentiality paragraph beneath every signature. Turn off for a shorter signature.</span></span>
+      </label>
+    </div>
+  </section>
+
+  <!-- 02 — DETAILS -->
+  <section>
+    <div class="sec-head">
+      <span class="n">&laquo; 02</span>
+      <div><h2>Fill in your details</h2><p>Find yourself below and fill the blanks, or add a new person. The preview and the copied version update together.</p></div>
+    </div>
+    <div id="cards"></div>
+    <div class="addbar"><button class="btn-add" id="addPerson"><span class="chev">&laquo;</span> Add someone</button></div>
+    <div class="savebar">
+      <span class="saved"><span class="dot"></span> Saved on this device</span>
+      <button class="reset" id="reset">Reset to the FuturePlay default team</button>
+    </div>
+  </section>
+
+  <!-- 03 — INSTALL -->
+  <section>
+    <div class="sec-head">
+      <span class="n">&laquo; 03</span>
+      <div><h2>Paste it into your email</h2><p>Copy puts a ready-to-paste signature on your clipboard — not code.</p></div>
+    </div>
+    <div class="panel">
+      <div class="steps">
+        <div class="step">
+          <h3><span class="chev" style="color:var(--blue)">&laquo;</span> Gmail (web)</h3>
+          <ol>
+            <li>Hit <b>Copy for email</b> on your signature above.</li>
+            <li>Gmail &rarr; <b>Settings</b> (gear) &rarr; <b>See all settings</b> &rarr; <b>General</b>.</li>
+            <li>Under <b>Signature</b>, create one, click in the box, paste (<code>Ctrl/&#8984;+V</code>).</li>
+            <li>Set it as default for new mail &amp; replies &rarr; <b>Save changes</b>.</li>
+          </ol>
+        </div>
+        <div class="step">
+          <h3><span class="chev" style="color:var(--blue)">&laquo;</span> Outlook</h3>
+          <ol>
+            <li><b>New / web:</b> Settings &rarr; <b>Mail</b> &rarr; <b>Compose and reply</b> &rarr; paste into the signature box.</li>
+            <li><b>Classic desktop:</b> File &rarr; Options &rarr; Mail &rarr; <b>Signatures</b> &rarr; New &rarr; paste.</li>
+            <li>Send yourself a test, then reply to it — confirm it holds.</li>
+          </ol>
+        </div>
+      </div>
+      <p class="note">Each person copies their own. You paste once and it's saved to your Gmail or Outlook account — it lives there, not on this page.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="chev">&laquo;</span> Delivered by ONNO Agency for FuturePlay Content · works in Gmail &amp; Outlook, on desktop and mobile.
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   FuturePlay signature studio — client edition
+   Assets are permanently hosted by ONNO. Nothing to host or paste.
+   ============================================================ */
+const EMBED = "https://onnoagency.github.io/futureplay-assets"; // permanent asset folder
+
+const FILES = {
+  logo:"fp-logo.png", email:"fp-icon-email.png", phone:"fp-icon-phone.png", pin:"fp-icon-pin.png",
+  graphic_streaming:"fp-graphic-streaming.png", graphic_sports:"fp-graphic-sports.png", graphic_culture:"fp-graphic-culture.png"
+};
+// bump VER whenever you replace a file in the repo — it forces Gmail/browsers to fetch the new one
+const VER = "3";
+// every image resolves to the permanent hosted URL — same in the preview and in the copied signature
+const src = k => EMBED.replace(/\/+$/,"") + "/" + FILES[k] + "?v=" + VER;
+
+const SHARED = {
+  address:"Office & Co, 2nd Floor, The Zone, Rosebank",
+  maps:"https://maps.app.goo.gl/WCDTXD99dcgsk9Z89",
+  web:"http://www.futureplaycontent.co.za",
+  webLabel:"futureplaycontent.co.za",
+  linkedin:"https://www.linkedin.com/company/futureplayza/posts/?feedView=all",
+  instagram:"https://www.instagram.com/futureplayza/"
+};
+
+const DEFAULT_PEOPLE = [
+  {key:"kirsty", first:"Kirsty", name:"Kirsty Schooling", title:"ACCOUNT DIRECTOR",
+   email:"kirstys@futureplay.co.za", phone:"(+27) 071 880 1964", wa:"27718801964"},
+  {key:"natalie", first:"Natalie", name:"Natalie Mills", title:"ACCOUNT MANAGER",
+   email:"nataliem@futureplay.co.za", phone:"(+27) 079 040 4277", wa:"27790404277"},
+  {key:"warwick", first:"Warwick", name:"Warwick Austin", title:"THE COOL DUDE (temporary title)",
+   email:"warwicka@futureplay.co.za", phone:"(+27) 076 969 9412", wa:"27769699412"}
+];
+
+const CLAUSE = "The content of this email is confidential and intended only for the recipient specified in the message. If you received this message by mistake, please reply to this message and follow with its deletion so that we can ensure such a mistake does not occur in the future. It may contain proprietary material and confidential information and/or be subject to legal privilege. It is strictly forbidden to share any part of this message with any third party without the written consent of the sender. Future Play Content and its subsidiaries are neither liable for the proper and complete transmission of the information contained in this communication nor for any delay in its receipt nor for any special, incidental or consequential damages of any nature resulting from receipt or use of this communication. Opinions, conclusions and other information on this message that do not relate to the official business of Future Play Content shall be understood as neither given nor endorsed by it.";
+
+/* ---------- state + persistence (per browser) ---------- */
+const LS = {people:"fp_sig_people_v2", graphic:"fp_sig_graphic_v1", clause:"fp_sig_clause_v1"};
+let PEOPLE, graphicKey, withClause;
+
+function load(){
+  try{ const raw=localStorage.getItem(LS.people); PEOPLE = raw ? JSON.parse(raw) : structuredCopy(DEFAULT_PEOPLE); }
+  catch(e){ PEOPLE = structuredCopy(DEFAULT_PEOPLE); }
+  if(!Array.isArray(PEOPLE) || !PEOPLE.length) PEOPLE = structuredCopy(DEFAULT_PEOPLE);
+  try{ graphicKey = localStorage.getItem(LS.graphic) || "graphic_streaming"; }catch(e){ graphicKey="graphic_streaming"; }
+  if(!FILES[graphicKey]) graphicKey="graphic_streaming";
+  try{ const c=localStorage.getItem(LS.clause); withClause = c===null ? true : c==="1"; }catch(e){ withClause=true; }
+}
+function structuredCopy(o){ return JSON.parse(JSON.stringify(o)); }
+function savePeople(){ try{ localStorage.setItem(LS.people, JSON.stringify(PEOPLE)); }catch(e){} }
+function saveGraphic(){ try{ localStorage.setItem(LS.graphic, graphicKey); }catch(e){} }
+function saveClause(){ try{ localStorage.setItem(LS.clause, withClause?"1":"0"); }catch(e){} }
+
+/* ---------- build one bulletproof signature ---------- */
+function buildSig(p){
+  const F="font-family:Arial,Helvetica,sans-serif;";
+  const blue="#24B3FF", grey="#5D5D5D", ink="#3F3F3F", sep="#C7CDD2";
+  const g = src;
+  const name = (p.name||"").trim() || "[ Your name ]";
+
+  // EX pins the leading so email clients can't inflate the cell with their own default line-height
+  const EX="mso-line-height-rule:exactly;";
+
+  // one consistent vertical rhythm: 3px gap below name == 3px gap between contact lines
+  const row = (iconKey, href, text) => ''
+    +'<tr><td style="padding:0 0 3px 0;line-height:0;font-size:0;">'
+    +'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>'
+    +'<td width="16" valign="middle" style="width:16px;line-height:0;font-size:0;"><a href="'+href+'" style="text-decoration:none;"><img src="'+g(iconKey)+'" width="16" height="16" alt="" style="display:block;width:16px;height:16px;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></a></td>'
+    +'<td width="9" style="width:9px;font-size:1px;line-height:1px;">&nbsp;</td>'
+    +'<td valign="middle" style="'+F+'font-size:12.5px;line-height:15px;'+EX+'"><a href="'+href+'" style="'+F+'font-size:12.5px;line-height:15px;color:'+ink+';text-decoration:none;">'+text+'</a></td>'
+    +'</tr></table></td></tr>';
+
+  // name -> title gap = 3px (identical to the gap between contact lines)
+  const nameRow = '<tr><td style="padding:0 0 3px 0;'+F+'font-size:18.5px;line-height:20px;'+EX+'"><span style="'+F+'font-size:18.5px;line-height:20px;font-weight:bold;color:'+blue+';">'+name+'</span></td></tr>';
+
+  const titleTxt = p.title || '[ add title ]';
+  const titleRow = '<tr><td style="padding:0 0 5px 0;'+F+'font-size:11.5px;line-height:13px;'+EX+'"><span style="'+F+'font-size:11.5px;line-height:13px;letter-spacing:.4px;color:'+grey+';text-transform:uppercase;">'+titleTxt+'</span></td></tr>';
+
+  const linksRow = '<tr><td style="padding:2px 0 0 0;'+F+'font-size:11.5px;line-height:15px;'+EX+'">'
+    +'<a href="'+SHARED.web+'" style="'+F+'font-size:11.5px;line-height:15px;color:'+ink+';text-decoration:none;font-weight:bold;">'+SHARED.webLabel+'</a>'
+    +'<span style="'+F+'font-size:11.5px;color:'+sep+';">&nbsp;&nbsp;|&nbsp;&nbsp;</span>'
+    +'<a href="'+SHARED.linkedin+'" style="'+F+'font-size:11.5px;line-height:15px;color:'+ink+';text-decoration:none;">LinkedIn</a>'
+    +'<span style="'+F+'font-size:11.5px;color:'+sep+';">&nbsp;&nbsp;|&nbsp;&nbsp;</span>'
+    +'<a href="'+SHARED.instagram+'" style="'+F+'font-size:11.5px;line-height:15px;color:'+ink+';text-decoration:none;">Instagram</a>'
+    +'</td></tr>';
+
+  const clauseRow = withClause
+    ? '<tr><td colspan="5" style="padding:10px 0 0 0;'+F+'font-size:9px;line-height:12px;'+EX+'"><span style="'+F+'font-size:9px;line-height:12px;color:#9AA0A6;">'+CLAUSE+'</span></td></tr>'
+    : '';
+
+  return ''
+  +'<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="500" bgcolor="#ffffff" style="border-collapse:collapse;width:500px;max-width:500px;background:#ffffff;'+F+'">'
+  +'<tr>'
+    +'<td width="92" valign="middle" style="width:92px;padding:0;"><img src="'+g(graphicKey)+'" width="92" height="106" alt="FuturePlay" style="display:block;width:92px;height:106px;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td>'
+    +'<td width="6" style="width:6px;font-size:1px;line-height:1px;">&nbsp;</td>'
+    +'<td width="111" valign="middle" style="width:111px;padding:0;"><img src="'+g("logo")+'" width="111" height="106" alt="FuturePlay Content" style="display:block;width:111px;height:106px;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td>'
+    +'<td width="12" style="width:12px;font-size:1px;line-height:1px;">&nbsp;</td>'
+    +'<td valign="middle" style="padding:0;'+F+'">'
+      +'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">'
+        +nameRow
+        +titleRow
+        +row("email","mailto:"+p.email,p.email)
+        +row("phone","https://wa.me/"+p.wa,p.phone)
+        +row("pin",SHARED.maps,SHARED.address)
+        +linksRow
+      +'</table>'
+    +'</td>'
+  +'</tr>'
+  +clauseRow
+  +'</table>';
+}
+
+/* ---------- clipboard (works from a hosted page or a local file) ---------- */
+function copyRichHTML(html){
+  const holder=document.createElement("div");
+  holder.setAttribute("contenteditable","true");
+  holder.style.cssText="position:fixed;left:-9999px;top:0;width:1px;height:1px;overflow:hidden;opacity:0;background:#ffffff;";
+  holder.innerHTML=html;
+  document.body.appendChild(holder);
+  const range=document.createRange();
+  range.selectNodeContents(holder);
+  const sel=window.getSelection();
+  sel.removeAllRanges(); sel.addRange(range);
+  let ok=false;
+  try{ ok=document.execCommand("copy"); }catch(e){ ok=false; }
+  sel.removeAllRanges();
+  document.body.removeChild(holder);
+  return ok;
+}
+async function copySig(p, btn){
+  const html=buildSig(p);
+  if(copyRichHTML(html)){ flash(btn,"Copied \u2713 — paste into your email"); return; }
+  try{
+    if(navigator.clipboard && window.ClipboardItem){
+      await navigator.clipboard.write([new ClipboardItem({
+        "text/html": new Blob([html],{type:"text/html"}),
+        "text/plain": new Blob([html],{type:"text/plain"})
+      })]);
+      flash(btn,"Copied \u2713 — paste into your email"); return;
+    }
+  }catch(e){}
+  // last resort: reveal the source for manual copy
+  const src=btn.closest(".sig").querySelector(".src");
+  src.value=html; src.classList.add("show"); src.select();
+  flash(btn,"Select-all + copy the code");
+}
+function flash(btn,msg){
+  const old=btn.textContent; btn.textContent=msg; btn.disabled=true;
+  setTimeout(()=>{ btn.textContent=old; btn.disabled=false; }, 1900);
+}
+
+/* ---------- UI ---------- */
+function graphicsUI(){
+  const wrap=document.getElementById("graphics");
+  const opts=[["graphic_streaming","Streaming"],["graphic_sports","Sports"],["graphic_culture","Culture"]];
+  wrap.innerHTML="";
+  opts.forEach(([k,label])=>{
+    const d=document.createElement("div");
+    d.className="gopt"+(k===graphicKey?" sel":"");
+    d.tabIndex=0; d.setAttribute("role","button"); d.setAttribute("aria-pressed", k===graphicKey);
+    d.innerHTML='<img src="'+src(k)+'" alt="'+label+'" onerror="this.style.opacity=.25"><span>'+label+'</span>';
+    const pick=()=>{ graphicKey=k; saveGraphic(); graphicsUI(); refreshPreviews(); };
+    d.onclick=pick;
+    d.onkeydown=e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); pick(); } };
+    wrap.appendChild(d);
+  });
+}
+
+function esc(s){ return (s||"").replace(/"/g,"&quot;"); }
+
+function field(p, prop, label, ph, full){
+  return '<div'+(full?' class="full"':'')+'><p class="mini">'+label+'</p>'
+    +'<input type="text" data-key="'+p.key+'" data-prop="'+prop+'" value="'+esc(p[prop])+'"'
+    +(ph?' placeholder="'+ph+'"':'')+'></div>';
+}
+
+function cardHTML(p){
+  const ready = !!(p.name && p.title);
+  return ''
+  +'<div class="sig-top"><div class="who"><span class="chev">&laquo;</span><b>'+(p.first||"New person")+'</b></div>'
+    +'<span class="tag '+(ready?"ok":"todo")+'">'+(ready?"Ready":"Add details")+'</span></div>'
+  +'<div class="sig-body">'
+    +'<div class="grid">'
+      +field(p,"name","Name","Your full name",false)
+      +field(p,"title","Title / role","e.g. Account Manager",false)
+      +field(p,"email","Email","you@futureplay.co.za",false)
+      +field(p,"phone","Phone (shown)","(+27) 0XX XXX XXXX",false)
+      +field(p,"wa","WhatsApp digits (link)","27XXXXXXXXX",true)
+    +'</div>'
+    +'<p class="prev-lab">Live preview</p>'
+    +'<div class="preview"><div class="preview-inner" id="prev-'+p.key+'">'+buildSig(p)+'</div></div>'
+    +'<div class="btns">'
+      +'<button class="btn btn-primary" data-act="copy" data-key="'+p.key+'"><span class="chev" style="color:#fff">&laquo;</span> Copy for email</button>'
+      +'<button class="btn btn-ghost" data-act="src" data-key="'+p.key+'">View HTML</button>'
+      +'<button class="btn-remove" data-act="remove" data-key="'+p.key+'">Remove</button>'
+    +'</div>'
+    +'<textarea class="src" readonly></textarea>'
+  +'</div>';
+}
+
+function renderCards(){
+  const host=document.getElementById("cards");
+  host.innerHTML="";
+  PEOPLE.forEach(p=>{
+    const card=document.createElement("div");
+    card.className="sig"; card.dataset.key=p.key;
+    card.innerHTML=cardHTML(p);
+    host.appendChild(card);
+  });
+  wireCards();
+}
+
+function findP(key){ return PEOPLE.find(x=>x.key===key); }
+
+function refreshPreviews(){
+  PEOPLE.forEach(p=>{
+    const el=document.getElementById("prev-"+p.key);
+    if(el) el.innerHTML=buildSig(p);
+  });
+}
+
+function wireCards(){
+  // typing updates the model + that preview live, without losing focus
+  document.querySelectorAll('#cards input[type=text]').forEach(inp=>{
+    inp.addEventListener("input", ()=>{
+      const p=findP(inp.dataset.key); if(!p) return;
+      p[inp.dataset.prop]=inp.value;
+      if(inp.dataset.prop==="name"){ p.first=(inp.value.trim().split(/\s+/)[0])||"New person"; }
+      const prev=document.getElementById("prev-"+p.key);
+      if(prev) prev.innerHTML=buildSig(p);
+      // ready chip
+      const card=inp.closest(".sig");
+      const tag=card.querySelector(".tag");
+      const who=card.querySelector(".who b");
+      const ready=!!(p.name&&p.title);
+      tag.className="tag "+(ready?"ok":"todo"); tag.textContent=ready?"Ready":"Add details";
+      who.textContent=p.first;
+      savePeople();
+    });
+  });
+  document.querySelectorAll('#cards [data-act]').forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const p=findP(btn.dataset.key);
+      if(btn.dataset.act==="copy"){ copySig(p, btn); }
+      else if(btn.dataset.act==="src"){
+        const ta=btn.closest(".sig").querySelector(".src");
+        if(ta.classList.contains("show")){ ta.classList.remove("show"); btn.textContent="View HTML"; }
+        else{ ta.value=buildSig(p); ta.classList.add("show"); btn.textContent="Hide HTML"; }
+      }
+      else if(btn.dataset.act==="remove"){
+        if(PEOPLE.length<=1){ alert("Keep at least one signature on the page."); return; }
+        if(confirm("Remove "+(p.first||"this person")+" from this page? (This only affects your device.)")){
+          PEOPLE=PEOPLE.filter(x=>x.key!==p.key); savePeople(); renderCards();
+        }
+      }
+    });
+  });
+}
+
+document.getElementById("clause").addEventListener("change", e=>{
+  withClause=e.target.checked; saveClause(); refreshPreviews();
+});
+document.getElementById("addPerson").addEventListener("click", ()=>{
+  PEOPLE.push({key:"p"+Date.now(), first:"New person", name:"", title:"",
+    email:"", phone:"", wa:""});
+  savePeople(); renderCards();
+  const cards=document.querySelectorAll("#cards .sig");
+  const last=cards[cards.length-1];
+  if(last){ last.scrollIntoView({behavior:"smooth",block:"center"}); last.querySelector("input").focus(); }
+});
+document.getElementById("reset").addEventListener("click", ()=>{
+  if(confirm("Reset to the FuturePlay default team? This clears any people you've added on this device.")){
+    try{ localStorage.removeItem(LS.people); localStorage.removeItem(LS.graphic); localStorage.removeItem(LS.clause); }catch(e){}
+    load(); document.getElementById("clause").checked=withClause; graphicsUI(); renderCards();
+  }
+});
+
+/* ---------- init ---------- */
+load();
+document.getElementById("clause").checked = withClause;
+graphicsUI();
+renderCards();
+</script>
+</body>
+</html>
