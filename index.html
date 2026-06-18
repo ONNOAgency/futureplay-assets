@@ -25,7 +25,6 @@
   .wrap{max-width:900px;margin:0 auto;padding:0 22px 96px}
   a{color:inherit}
 
-  /* hero */
   header.hero{padding:54px 0 30px}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);
     font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue-d)}
@@ -33,24 +32,22 @@
   h1{font-family:var(--disp);font-weight:700;font-size:clamp(30px,5vw,44px);
     line-height:1.05;letter-spacing:-.02em;margin:14px 0 0}
   h1 em{font-style:normal;color:var(--blue-d)}
-  .lede{max-width:60ch;margin:16px 0 0;color:#3C434C;font-size:16px}
+  .lede{max-width:62ch;margin:16px 0 0;color:#3C434C;font-size:16px}
   .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
   .chip{background:var(--panel);border:1px solid var(--line);border-radius:999px;
     padding:8px 15px;font-size:13px;color:#3C434C;box-shadow:var(--shadow)}
   .chip b{color:var(--ink);font-weight:600}
 
-  /* sections */
   section{margin-top:34px}
   .sec-head{display:flex;gap:16px;align-items:baseline;margin-bottom:16px}
   .sec-head .n{font-family:var(--disp);font-weight:700;font-size:15px;color:var(--blue-d);
     letter-spacing:.04em;white-space:nowrap}
   .sec-head h2{font-family:var(--disp);font-weight:700;font-size:clamp(20px,3vw,26px);
     letter-spacing:-.01em;margin:0;line-height:1.1}
-  .sec-head p{margin:4px 0 0;color:var(--muted);font-size:14px;max-width:60ch}
+  .sec-head p{margin:4px 0 0;color:var(--muted);font-size:14px;max-width:62ch}
   .panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;
     padding:24px;box-shadow:var(--shadow)}
 
-  /* graphic picker */
   .graphics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
   .gopt{border:2px solid var(--line);border-radius:14px;padding:14px 10px;cursor:pointer;
     text-align:center;background:var(--soft);transition:border-color .15s, transform .15s}
@@ -62,7 +59,7 @@
     text-transform:uppercase;color:var(--grey)}
   .gopt.sel span{color:var(--blue-d)}
 
-  .toggle{display:flex;gap:12px;align-items:flex-start;margin-top:20px;cursor:pointer}
+  .toggle{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
   .toggle input{position:absolute;opacity:0;width:0;height:0}
   .sw{flex:0 0 auto;width:42px;height:24px;border-radius:999px;background:#CDD4DB;position:relative;
     transition:background .18s;margin-top:1px}
@@ -73,6 +70,30 @@
   .toggle .tx b{display:block;font-family:var(--disp);font-weight:600;font-size:14px}
   .toggle .tx span{display:block;color:var(--muted);font-size:13px;margin-top:2px}
   .toggle input:focus-visible + .sw{outline:2px solid var(--blue);outline-offset:2px}
+
+  .divider{height:1px;background:var(--line);margin:22px 0}
+  .mini{margin:0 0 8px;font-family:var(--disp);font-weight:600;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--grey)}
+
+  /* typography controls */
+  .note{margin:0 0 18px;color:#5A6470;font-size:13px;background:var(--soft);border:1px solid var(--line);
+    border-radius:12px;padding:12px 14px;line-height:1.5}
+  .typo{display:flex;flex-direction:column;gap:14px}
+  .typo-row{display:grid;grid-template-columns:118px minmax(0,1.4fr) minmax(0,1fr) 74px 40px;gap:10px;align-items:center}
+  .typo-row .lab{font-family:var(--disp);font-weight:600;font-size:13.5px;color:var(--ink)}
+  .fld{font:inherit;font-size:14px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;
+    background:#fff;color:var(--ink);width:100%}
+  .fld:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(36,179,255,.15)}
+  select.fld{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:26px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M1 1l4 4 4-4' fill='none' stroke='%238A929B' stroke-width='1.5'/></svg>");
+    background-repeat:no-repeat;background-position:right 10px center}
+  .ital{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:700;font-size:16px;
+    color:var(--muted);border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;height:38px;line-height:1}
+  .ital.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+  .discl-text{width:100%;min-height:130px;font:inherit;font-size:13px;line-height:1.55;
+    border:1px solid var(--line);border-radius:12px;padding:13px;color:var(--ink);background:#fff;resize:vertical}
+  .discl-text:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(36,179,255,.15)}
 
   /* signature cards */
   #cards{display:flex;flex-direction:column;gap:18px}
@@ -88,8 +109,7 @@
   .sig-body{padding:22px}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .full{grid-column:1 / -1}
-  .mini{margin:0 0 6px;font-family:var(--disp);font-weight:600;font-size:11px;letter-spacing:.08em;
-    text-transform:uppercase;color:var(--grey)}
+  .grid .mini{margin:0 0 6px}
   input[type=text]{width:100%;font:inherit;font-size:15px;color:var(--ink);background:#fff;
     border:1px solid var(--line);border-radius:11px;padding:11px 13px;transition:border-color .15s, box-shadow .15s}
   input[type=text]:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(36,179,255,.15)}
@@ -121,14 +141,13 @@
     background:#fff;color:var(--blue-d);border-radius:14px;padding:13px 22px;cursor:pointer}
   .btn-add:hover{border-color:var(--blue);background:#F6FCFF}
 
-  /* install */
   .steps{display:grid;grid-template-columns:1fr 1fr;gap:28px}
   .step h3{font-family:var(--disp);font-weight:700;font-size:16px;margin:0 0 10px;display:flex;gap:8px;align-items:center}
   .step ol{margin:0;padding-left:20px}
   .step li{margin:6px 0;color:#3C434C}
   .step code{font-family:var(--mono);font-size:12px;background:var(--soft);border:1px solid var(--line);
     border-radius:6px;padding:1px 6px}
-  .note{margin:18px 0 0;color:var(--muted);font-size:13px}
+  .foot-note{margin:18px 0 0;color:var(--muted);font-size:13px}
 
   footer{margin-top:42px;padding-top:22px;border-top:1px solid var(--line);
     color:var(--muted);font-size:13px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -144,6 +163,8 @@
     .grid{grid-template-columns:1fr}
     .steps{grid-template-columns:1fr}
     .graphics{grid-template-columns:1fr 1fr}
+    .typo-row{grid-template-columns:1fr 1fr 74px 40px}
+    .typo-row .lab{grid-column:1 / -1;margin-bottom:-4px}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none !important}}
 </style>
@@ -154,7 +175,7 @@
   <header class="hero">
     <span class="eyebrow"><span class="chev">&laquo;</span> ONNO Agency · Signature Studio for FuturePlay</span>
     <h1>Your FuturePlay signature,<br>ready in a <em>minute</em>.</h1>
-    <p class="lede">Pick a graphic, fill in your details, and hit copy. Paste straight into Gmail or Outlook — it arrives looking exactly like the preview. Bookmark this page: your details stay saved on this device, and you can add new people any time.</p>
+    <p class="lede">Choose your graphic and fonts, fill in your details, and hit copy. Paste straight into Gmail or Outlook — it arrives looking like the preview. Bookmark this page: your settings stay saved on this device, and you can add new people any time.</p>
     <div class="chips">
       <span class="chip"><b>Paste</b> into Gmail or Outlook</span>
       <span class="chip"><b>Saved</b> on this device</span>
@@ -162,40 +183,67 @@
     </div>
   </header>
 
-  <!-- 01 — GRAPHIC -->
+  <!-- 01 — GRAPHIC & DISCLAIMER -->
   <section>
     <div class="sec-head">
       <span class="n">&laquo; 01</span>
-      <div><h2>Choose your graphic</h2><p>This sits on the left of every signature. Pick the one that fits you — it applies to all signatures below.</p></div>
+      <div><h2>Graphic &amp; disclaimer</h2><p>Show or hide the left graphic, pick which one, and edit the confidentiality paragraph. These apply to every signature.</p></div>
     </div>
     <div class="panel">
-      <div class="graphics" id="graphics"></div>
+      <label class="toggle">
+        <input type="checkbox" id="showGraphic" checked>
+        <span class="sw"></span>
+        <span class="tx"><b>Show the left graphic</b><span>The action photo beside the logo. Turn off for a cleaner, logo-only signature.</span></span>
+      </label>
+      <div id="graphicsWrap" style="margin-top:18px">
+        <p class="mini">Which graphic</p>
+        <div class="graphics" id="graphics"></div>
+      </div>
+
+      <div class="divider"></div>
+
       <label class="toggle">
         <input type="checkbox" id="clause" checked>
         <span class="sw"></span>
-        <span class="tx"><b>Add the legal disclaimer</b><span>Appends the confidentiality paragraph beneath every signature. Turn off for a shorter signature.</span></span>
+        <span class="tx"><b>Add the legal disclaimer</b><span>The confidentiality paragraph beneath the signature. Turn off for a shorter signature.</span></span>
       </label>
+      <div id="disclWrap" style="margin-top:16px">
+        <p class="mini">Disclaimer text — editable</p>
+        <textarea class="discl-text" id="disclText" spellcheck="true"></textarea>
+      </div>
     </div>
   </section>
 
-  <!-- 02 — DETAILS -->
+  <!-- 02 — FONTS -->
   <section>
     <div class="sec-head">
       <span class="n">&laquo; 02</span>
+      <div><h2>Fonts</h2><p>Set the typeface, weight, size and italics for each part of the signature.</p></div>
+    </div>
+    <div class="panel">
+      <p class="note"><b>About fonts in email:</b> Gmail and Outlook often swap custom fonts for a standard system font, so your chosen fonts show here in the preview and in apps like Apple Mail, but may appear as Arial/Helvetica in some inboxes. Every line is built to fall back cleanly, so it always looks tidy either way.</p>
+      <div class="typo" id="typo"></div>
+    </div>
+  </section>
+
+  <!-- 03 — DETAILS -->
+  <section>
+    <div class="sec-head">
+      <span class="n">&laquo; 03</span>
       <div><h2>Fill in your details</h2><p>Find yourself below and fill the blanks, or add a new person. The preview and the copied version update together.</p></div>
     </div>
     <div id="cards"></div>
     <div class="addbar"><button class="btn-add" id="addPerson"><span class="chev">&laquo;</span> Add someone</button></div>
     <div class="savebar">
       <span class="saved"><span class="dot"></span> Saved on this device</span>
-      <button class="reset" id="reset">Reset to the FuturePlay default team</button>
+      <button class="reset" id="reset">Reset everything to the FuturePlay defaults</button>
     </div>
   </section>
 
-  <!-- 03 — INSTALL -->
+  <!-- 04 — INSTALL -->
   <section>
     <div class="sec-head">
-      <span class="n">&laquo; 03</span>
+      <span class="n">&laquo; 04</span>
       <div><h2>Paste it into your email</h2><p>Copy puts a ready-to-paste signature on your clipboard — not code.</p></div>
     </div>
     <div class="panel">
@@ -218,7 +266,7 @@
           </ol>
         </div>
       </div>
-      <p class="note">Each person copies their own. You paste once and it's saved to your Gmail or Outlook account — it lives there, not on this page.</p>
+      <p class="foot-note">Each person copies their own. You paste once and it's saved to your Gmail or Outlook account — it lives there, not on this page.</p>
     </div>
   </section>
 
@@ -230,7 +278,7 @@
 <script>
 /* ============================================================
    FuturePlay signature studio — client edition
-   Assets are permanently hosted by ONNO. Nothing to host or paste.
+   Assets hosted by ONNO. Fonts, graphic and disclaimer are configurable.
    ============================================================ */
 const EMBED = "https://onnoagency.github.io/futureplay-assets"; // permanent asset folder
 
@@ -240,7 +288,6 @@ const FILES = {
 };
 // bump VER whenever you replace a file in the repo — it forces Gmail/browsers to fetch the new one
 const VER = "3";
-// every image resolves to the permanent hosted URL — same in the preview and in the copied signature
 const src = k => EMBED.replace(/\/+$/,"") + "/" + FILES[k] + "?v=" + VER;
 
 const SHARED = {
@@ -263,71 +310,143 @@ const DEFAULT_PEOPLE = [
 
 const CLAUSE = "The content of this email is confidential and intended only for the recipient specified in the message. If you received this message by mistake, please reply to this message and follow with its deletion so that we can ensure such a mistake does not occur in the future. It may contain proprietary material and confidential information and/or be subject to legal privilege. It is strictly forbidden to share any part of this message with any third party without the written consent of the sender. Future Play Content and its subsidiaries are neither liable for the proper and complete transmission of the information contained in this communication nor for any delay in its receipt nor for any special, incidental or consequential damages of any nature resulting from receipt or use of this communication. Opinions, conclusions and other information on this message that do not relate to the official business of Future Play Content shall be understood as neither given nor endorsed by it.";
 
-/* ---------- state + persistence (per browser) ---------- */
-const LS = {people:"fp_sig_people_v2", graphic:"fp_sig_graphic_v1", clause:"fp_sig_clause_v1"};
-let PEOPLE, graphicKey, withClause;
+/* ---------- fonts ---------- */
+const FONTS = [
+  {n:"Montserrat",g:1},{n:"Poppins",g:1},{n:"Inter",g:1},{n:"Roboto",g:1},
+  {n:"Open Sans",g:1},{n:"Lato",g:1},{n:"Raleway",g:1},{n:"Work Sans",g:1},
+  {n:"Nunito",g:1},{n:"DM Sans",g:1},{n:"Manrope",g:1},{n:"Archivo",g:1},
+  {n:"Oswald",g:1},{n:"Barlow Condensed",g:1},
+  {n:"Playfair Display",g:1,serif:1},{n:"Merriweather",g:1,serif:1},{n:"Lora",g:1,serif:1},
+  {n:"Arial",g:0},{n:"Helvetica",g:0},{n:"Verdana",g:0},{n:"Tahoma",g:0},
+  {n:"Trebuchet MS",g:0},{n:"Georgia",g:0,serif:1},{n:"Times New Roman",g:0,serif:1}
+];
+const WEIGHTS = [[100,"Thin"],[200,"ExtraLight"],[300,"Light"],[400,"Normal"],[500,"Medium"],
+  [600,"SemiBold"],[700,"Bold"],[800,"ExtraBold"],[900,"Black"]];
+const fontDef = n => FONTS.find(f=>f.n===n);
 
+const loadedFonts = new Set();
+function ensureFont(name){
+  const f=fontDef(name);
+  if(!f || !f.g || loadedFonts.has(name)) return;
+  loadedFonts.add(name);
+  try{
+    const link=document.createElement("link");
+    link.rel="stylesheet";
+    link.href="https://fonts.googleapis.com/css?family="+name.replace(/ /g,"+")+":300,400,500,600,700,800,900&display=swap";
+    document.head.appendChild(link);
+  }catch(e){}
+}
+
+/* ---------- state + persistence (per browser) ---------- */
+const LS = {
+  people:"fp_sig_people_v2", graphic:"fp_sig_graphic_v1", clause:"fp_sig_clause_v1",
+  style:"fp_sig_style_v1", showgraphic:"fp_sig_showgraphic_v1", disclaimer:"fp_sig_disclaimer_v1"
+};
+
+// FuturePlay's specified defaults
+const DEFAULT_STYLE = {
+  name:      {font:"Montserrat", size:18.5, weight:800, italic:false, color:"#24B3FF"}, // Montserrat ExtraBold
+  details:   {font:"Montserrat", size:11,   weight:500, italic:false},                  // Montserrat Medium (title + contacts)
+  website:   {font:"Montserrat", size:10.5, weight:700, italic:false},                  // Montserrat Bold
+  disclaimer:{font:"Arial",      size:9,    weight:400, italic:false}                   // Arial
+};
+
+let PEOPLE, graphicKey, withClause, STYLE, showGraphic, disclaimerText;
+
+function structuredCopy(o){ return JSON.parse(JSON.stringify(o)); }
+function mergeStyle(o){
+  const base=structuredCopy(DEFAULT_STYLE);
+  if(o && typeof o==="object"){ for(const k in base){ if(o[k] && typeof o[k]==="object") Object.assign(base[k], o[k]); } }
+  return base;
+}
 function load(){
   try{ const raw=localStorage.getItem(LS.people); PEOPLE = raw ? JSON.parse(raw) : structuredCopy(DEFAULT_PEOPLE); }
   catch(e){ PEOPLE = structuredCopy(DEFAULT_PEOPLE); }
   if(!Array.isArray(PEOPLE) || !PEOPLE.length) PEOPLE = structuredCopy(DEFAULT_PEOPLE);
+
   try{ graphicKey = localStorage.getItem(LS.graphic) || "graphic_streaming"; }catch(e){ graphicKey="graphic_streaming"; }
   if(!FILES[graphicKey]) graphicKey="graphic_streaming";
+
   try{ const c=localStorage.getItem(LS.clause); withClause = c===null ? true : c==="1"; }catch(e){ withClause=true; }
+
+  try{ const raw=localStorage.getItem(LS.style); STYLE = mergeStyle(raw?JSON.parse(raw):null); }catch(e){ STYLE=structuredCopy(DEFAULT_STYLE); }
+
+  try{ const sg=localStorage.getItem(LS.showgraphic); showGraphic = sg===null ? true : sg==="1"; }catch(e){ showGraphic=true; }
+
+  try{ const dt=localStorage.getItem(LS.disclaimer); disclaimerText = (dt===null) ? CLAUSE : dt; }catch(e){ disclaimerText=CLAUSE; }
 }
-function structuredCopy(o){ return JSON.parse(JSON.stringify(o)); }
 function savePeople(){ try{ localStorage.setItem(LS.people, JSON.stringify(PEOPLE)); }catch(e){} }
 function saveGraphic(){ try{ localStorage.setItem(LS.graphic, graphicKey); }catch(e){} }
 function saveClause(){ try{ localStorage.setItem(LS.clause, withClause?"1":"0"); }catch(e){} }
+function saveStyle(){ try{ localStorage.setItem(LS.style, JSON.stringify(STYLE)); }catch(e){} }
+function saveShowGraphic(){ try{ localStorage.setItem(LS.showgraphic, showGraphic?"1":"0"); }catch(e){} }
+function saveDisclaimer(){ try{ localStorage.setItem(LS.disclaimer, disclaimerText); }catch(e){} }
 
 /* ---------- build one bulletproof signature ---------- */
+function escHTML(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function famStack(s){
+  const f=fontDef(s.font);
+  const fb=(f && f.serif) ? 'Georgia, "Times New Roman", serif' : 'Arial, Helvetica, sans-serif';
+  const q=/\s/.test(s.font) ? ("'"+s.font+"'") : s.font;
+  return q+", "+fb;
+}
+function fc(s, sizeOverride, weightOverride){
+  const sz=(sizeOverride!=null)?sizeOverride:s.size;
+  const wt=(weightOverride!=null)?weightOverride:s.weight;
+  return "font-family:"+famStack(s)+";font-size:"+sz+"px;font-weight:"+wt+";"+(s.italic?"font-style:italic;":"");
+}
+const lh = (size, ratio)=>Math.max(1, Math.round(size*ratio));
+
 function buildSig(p){
-  const F="font-family:Arial,Helvetica,sans-serif;";
-  const blue="#24B3FF", grey="#5D5D5D", ink="#3F3F3F", sep="#C7CDD2";
-  const g = src;
-  const name = (p.name||"").trim() || "[ Your name ]";
-
-  // EX pins the leading so email clients can't inflate the cell with their own default line-height
   const EX="mso-line-height-rule:exactly;";
+  const grey="#5D5D5D", ink="#3F3F3F", sep="#C7CDD2", disclCol="#9AA0A6";
+  const g=src;
+  const name=(p.name||"").trim() || "[ Your name ]";
+  const titleTxt=p.title || "[ add title ]";
 
-  // one consistent vertical rhythm: 3px gap below name == 3px gap between contact lines
-  const row = (iconKey, href, text) => ''
+  const N=STYLE.name, D=STYLE.details, W=STYLE.website, C=STYLE.disclaimer;
+  const nLH=lh(N.size,1.08), dLH=lh(D.size,1.2), wLH=lh(W.size,1.3), cLH=lh(C.size,1.33);
+
+  const row=(iconKey,href,text)=>''
     +'<tr><td style="padding:0 0 3px 0;line-height:0;font-size:0;">'
     +'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>'
     +'<td width="16" valign="middle" style="width:16px;line-height:0;font-size:0;"><a href="'+href+'" style="text-decoration:none;"><img src="'+g(iconKey)+'" width="16" height="16" alt="" style="display:block;width:16px;height:16px;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></a></td>'
     +'<td width="9" style="width:9px;font-size:1px;line-height:1px;">&nbsp;</td>'
-    +'<td valign="middle" style="'+F+'font-size:12.5px;line-height:15px;'+EX+'"><a href="'+href+'" style="'+F+'font-size:12.5px;line-height:15px;color:'+ink+';text-decoration:none;">'+text+'</a></td>'
+    +'<td valign="middle" style="'+fc(D)+'line-height:'+dLH+'px;'+EX+'"><a href="'+href+'" style="'+fc(D)+'line-height:'+dLH+'px;color:'+ink+';text-decoration:none;">'+escHTML(text)+'</a></td>'
     +'</tr></table></td></tr>';
 
-  // name -> title gap = 3px (identical to the gap between contact lines)
-  const nameRow = '<tr><td style="padding:0 0 3px 0;'+F+'font-size:18.5px;line-height:20px;'+EX+'"><span style="'+F+'font-size:18.5px;line-height:20px;font-weight:bold;color:'+blue+';">'+name+'</span></td></tr>';
+  const nameRow='<tr><td style="padding:0 0 3px 0;'+fc(N)+'line-height:'+nLH+'px;'+EX+'"><span style="'+fc(N)+'line-height:'+nLH+'px;color:'+(N.color||"#24B3FF")+';">'+escHTML(name)+'</span></td></tr>';
 
-  const titleTxt = p.title || '[ add title ]';
-  const titleRow = '<tr><td style="padding:0 0 5px 0;'+F+'font-size:11.5px;line-height:13px;'+EX+'"><span style="'+F+'font-size:11.5px;line-height:13px;letter-spacing:.4px;color:'+grey+';text-transform:uppercase;">'+titleTxt+'</span></td></tr>';
+  const titleRow='<tr><td style="padding:0 0 5px 0;'+fc(D)+'line-height:'+dLH+'px;'+EX+'"><span style="'+fc(D)+'line-height:'+dLH+'px;letter-spacing:.4px;color:'+grey+';text-transform:uppercase;">'+escHTML(titleTxt)+'</span></td></tr>';
 
-  const linksRow = '<tr><td style="padding:2px 0 0 0;'+F+'font-size:11.5px;line-height:15px;'+EX+'">'
-    +'<a href="'+SHARED.web+'" style="'+F+'font-size:11.5px;line-height:15px;color:'+ink+';text-decoration:none;font-weight:bold;">'+SHARED.webLabel+'</a>'
-    +'<span style="'+F+'font-size:11.5px;color:'+sep+';">&nbsp;&nbsp;|&nbsp;&nbsp;</span>'
-    +'<a href="'+SHARED.linkedin+'" style="'+F+'font-size:11.5px;line-height:15px;color:'+ink+';text-decoration:none;">LinkedIn</a>'
-    +'<span style="'+F+'font-size:11.5px;color:'+sep+';">&nbsp;&nbsp;|&nbsp;&nbsp;</span>'
-    +'<a href="'+SHARED.instagram+'" style="'+F+'font-size:11.5px;line-height:15px;color:'+ink+';text-decoration:none;">Instagram</a>'
+  const linksRow='<tr><td style="padding:2px 0 0 0;'+fc(W)+'line-height:'+wLH+'px;'+EX+'">'
+    +'<a href="'+SHARED.web+'" style="'+fc(W)+'line-height:'+wLH+'px;color:'+ink+';text-decoration:none;">'+SHARED.webLabel+'</a>'
+    +'<span style="'+fc(W,null,400)+'color:'+sep+';">&nbsp;&nbsp;|&nbsp;&nbsp;</span>'
+    +'<a href="'+SHARED.linkedin+'" style="'+fc(W,null,400)+'line-height:'+wLH+'px;color:'+ink+';text-decoration:none;">LinkedIn</a>'
+    +'<span style="'+fc(W,null,400)+'color:'+sep+';">&nbsp;&nbsp;|&nbsp;&nbsp;</span>'
+    +'<a href="'+SHARED.instagram+'" style="'+fc(W,null,400)+'line-height:'+wLH+'px;color:'+ink+';text-decoration:none;">Instagram</a>'
     +'</td></tr>';
 
+  const colspan = showGraphic ? 5 : 3;
   const clauseRow = withClause
-    ? '<tr><td colspan="5" style="padding:10px 0 0 0;'+F+'font-size:9px;line-height:12px;'+EX+'"><span style="'+F+'font-size:9px;line-height:12px;color:#9AA0A6;">'+CLAUSE+'</span></td></tr>'
+    ? '<tr><td colspan="'+colspan+'" style="padding:10px 0 0 0;'+fc(C)+'line-height:'+cLH+'px;'+EX+'"><span style="'+fc(C)+'line-height:'+cLH+'px;color:'+disclCol+';">'+escHTML(disclaimerText)+'</span></td></tr>'
+    : '';
+
+  const graphicCells = showGraphic
+    ? '<td width="92" valign="middle" style="width:92px;padding:0;"><img src="'+g(graphicKey)+'" width="92" height="106" alt="FuturePlay" style="display:block;width:92px;height:106px;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td>'
+      +'<td width="6" style="width:6px;font-size:1px;line-height:1px;">&nbsp;</td>'
     : '';
 
   return ''
-  +'<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="500" bgcolor="#ffffff" style="border-collapse:collapse;width:500px;max-width:500px;background:#ffffff;'+F+'">'
+  +'<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="500" bgcolor="#ffffff" style="border-collapse:collapse;width:500px;max-width:500px;background:#ffffff;font-family:Arial,Helvetica,sans-serif;">'
   +'<tr>'
-    +'<td width="92" valign="middle" style="width:92px;padding:0;"><img src="'+g(graphicKey)+'" width="92" height="106" alt="FuturePlay" style="display:block;width:92px;height:106px;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td>'
-    +'<td width="6" style="width:6px;font-size:1px;line-height:1px;">&nbsp;</td>'
+    +graphicCells
     +'<td width="111" valign="middle" style="width:111px;padding:0;"><img src="'+g("logo")+'" width="111" height="106" alt="FuturePlay Content" style="display:block;width:111px;height:106px;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></td>'
     +'<td width="12" style="width:12px;font-size:1px;line-height:1px;">&nbsp;</td>'
-    +'<td valign="middle" style="padding:0;'+F+'">'
+    +'<td valign="middle" style="padding:0;">'
       +'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">'
-        +nameRow
-        +titleRow
+        +nameRow+titleRow
         +row("email","mailto:"+p.email,p.email)
         +row("phone","https://wa.me/"+p.wa,p.phone)
         +row("pin",SHARED.maps,SHARED.address)
@@ -368,9 +487,8 @@ async function copySig(p, btn){
       flash(btn,"Copied \u2713 — paste into your email"); return;
     }
   }catch(e){}
-  // last resort: reveal the source for manual copy
-  const src=btn.closest(".sig").querySelector(".src");
-  src.value=html; src.classList.add("show"); src.select();
+  const srcBox=btn.closest(".sig").querySelector(".src");
+  srcBox.value=html; srcBox.classList.add("show"); srcBox.select();
   flash(btn,"Select-all + copy the code");
 }
 function flash(btn,msg){
@@ -378,7 +496,7 @@ function flash(btn,msg){
   setTimeout(()=>{ btn.textContent=old; btn.disabled=false; }, 1900);
 }
 
-/* ---------- UI ---------- */
+/* ---------- UI: graphic picker ---------- */
 function graphicsUI(){
   const wrap=document.getElementById("graphics");
   const opts=[["graphic_streaming","Streaming"],["graphic_sports","Sports"],["graphic_culture","Culture"]];
@@ -395,14 +513,53 @@ function graphicsUI(){
   });
 }
 
-function esc(s){ return (s||"").replace(/"/g,"&quot;"); }
+/* ---------- UI: typography controls ---------- */
+function typoUI(){
+  const host=document.getElementById("typo");
+  const groups=[["name","Name"],["details","Title & details"],["website","Website"],["disclaimer","Disclaimer"]];
+  host.innerHTML="";
+  groups.forEach(([key,label])=>{
+    const s=STYLE[key];
+    const fontOpts=FONTS.map(f=>'<option'+(f.n===s.font?' selected':'')+'>'+f.n+'</option>').join('');
+    const wOpts=WEIGHTS.map(w=>'<option value="'+w[0]+'"'+(w[0]===s.weight?' selected':'')+'>'+w[1]+'</option>').join('');
+    const row=document.createElement("div"); row.className="typo-row";
+    row.innerHTML=
+       '<span class="lab">'+label+'</span>'
+      +'<select class="fld" data-g="'+key+'" data-f="font" aria-label="'+label+' font">'+fontOpts+'</select>'
+      +'<select class="fld" data-g="'+key+'" data-f="weight" aria-label="'+label+' weight">'+wOpts+'</select>'
+      +'<input class="fld" type="number" step="0.5" min="6" max="60" data-g="'+key+'" data-f="size" value="'+s.size+'" aria-label="'+label+' size">'
+      +'<button class="ital'+(s.italic?' on':'')+'" data-g="'+key+'" data-f="italic" title="Italic" aria-label="'+label+' italic">I</button>';
+    host.appendChild(row);
+  });
+  host.querySelectorAll('select[data-f]').forEach(el=>{
+    el.addEventListener('change',()=>{
+      const g=el.dataset.g;
+      if(el.dataset.f==="weight") STYLE[g].weight=parseInt(el.value,10);
+      else if(el.dataset.f==="font"){ STYLE[g].font=el.value; ensureFont(el.value); }
+      saveStyle(); refreshPreviews();
+    });
+  });
+  host.querySelectorAll('input[data-f="size"]').forEach(el=>{
+    el.addEventListener('input',()=>{
+      const v=parseFloat(el.value);
+      if(!isNaN(v) && v>0){ STYLE[el.dataset.g].size=v; saveStyle(); refreshPreviews(); }
+    });
+  });
+  host.querySelectorAll('.ital').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const g=b.dataset.g; STYLE[g].italic=!STYLE[g].italic;
+      b.classList.toggle('on', STYLE[g].italic); saveStyle(); refreshPreviews();
+    });
+  });
+}
 
+/* ---------- UI: cards ---------- */
+function esc(s){ return (s||"").replace(/"/g,"&quot;"); }
 function field(p, prop, label, ph, full){
   return '<div'+(full?' class="full"':'')+'><p class="mini">'+label+'</p>'
     +'<input type="text" data-key="'+p.key+'" data-prop="'+prop+'" value="'+esc(p[prop])+'"'
     +(ph?' placeholder="'+ph+'"':'')+'></div>';
 }
-
 function cardHTML(p){
   const ready = !!(p.name && p.title);
   return ''
@@ -426,7 +583,6 @@ function cardHTML(p){
     +'<textarea class="src" readonly></textarea>'
   +'</div>';
 }
-
 function renderCards(){
   const host=document.getElementById("cards");
   host.innerHTML="";
@@ -438,18 +594,11 @@ function renderCards(){
   });
   wireCards();
 }
-
 function findP(key){ return PEOPLE.find(x=>x.key===key); }
-
 function refreshPreviews(){
-  PEOPLE.forEach(p=>{
-    const el=document.getElementById("prev-"+p.key);
-    if(el) el.innerHTML=buildSig(p);
-  });
+  PEOPLE.forEach(p=>{ const el=document.getElementById("prev-"+p.key); if(el) el.innerHTML=buildSig(p); });
 }
-
 function wireCards(){
-  // typing updates the model + that preview live, without losing focus
   document.querySelectorAll('#cards input[type=text]').forEach(inp=>{
     inp.addEventListener("input", ()=>{
       const p=findP(inp.dataset.key); if(!p) return;
@@ -457,7 +606,6 @@ function wireCards(){
       if(inp.dataset.prop==="name"){ p.first=(inp.value.trim().split(/\s+/)[0])||"New person"; }
       const prev=document.getElementById("prev-"+p.key);
       if(prev) prev.innerHTML=buildSig(p);
-      // ready chip
       const card=inp.closest(".sig");
       const tag=card.querySelector(".tag");
       const who=card.querySelector(".who b");
@@ -486,28 +634,50 @@ function wireCards(){
   });
 }
 
+/* ---------- visibility helpers ---------- */
+function applyGraphicVis(){ document.getElementById("graphicsWrap").style.display = showGraphic ? "" : "none"; }
+function applyDisclVis(){ document.getElementById("disclWrap").style.display = withClause ? "" : "none"; }
+
+/* ---------- global control wiring ---------- */
+document.getElementById("showGraphic").addEventListener("change", e=>{
+  showGraphic=e.target.checked; saveShowGraphic(); applyGraphicVis(); refreshPreviews();
+});
 document.getElementById("clause").addEventListener("change", e=>{
-  withClause=e.target.checked; saveClause(); refreshPreviews();
+  withClause=e.target.checked; saveClause(); applyDisclVis(); refreshPreviews();
+});
+document.getElementById("disclText").addEventListener("input", e=>{
+  disclaimerText=e.target.value; saveDisclaimer(); refreshPreviews();
 });
 document.getElementById("addPerson").addEventListener("click", ()=>{
-  PEOPLE.push({key:"p"+Date.now(), first:"New person", name:"", title:"",
-    email:"", phone:"", wa:""});
+  PEOPLE.push({key:"p"+Date.now(), first:"New person", name:"", title:"", email:"", phone:"", wa:""});
   savePeople(); renderCards();
   const cards=document.querySelectorAll("#cards .sig");
   const last=cards[cards.length-1];
   if(last){ last.scrollIntoView({behavior:"smooth",block:"center"}); last.querySelector("input").focus(); }
 });
 document.getElementById("reset").addEventListener("click", ()=>{
-  if(confirm("Reset to the FuturePlay default team? This clears any people you've added on this device.")){
-    try{ localStorage.removeItem(LS.people); localStorage.removeItem(LS.graphic); localStorage.removeItem(LS.clause); }catch(e){}
-    load(); document.getElementById("clause").checked=withClause; graphicsUI(); renderCards();
+  if(confirm("Reset everything to the FuturePlay defaults? This clears any people, fonts and edits saved on this device.")){
+    try{ Object.values(LS).forEach(k=>localStorage.removeItem(k)); }catch(e){}
+    load();
+    ["name","details","website","disclaimer"].forEach(k=>ensureFont(STYLE[k].font));
+    document.getElementById("showGraphic").checked=showGraphic;
+    document.getElementById("clause").checked=withClause;
+    document.getElementById("disclText").value=disclaimerText;
+    applyGraphicVis(); applyDisclVis();
+    graphicsUI(); typoUI(); renderCards();
   }
 });
 
 /* ---------- init ---------- */
 load();
-document.getElementById("clause").checked = withClause;
+["name","details","website","disclaimer"].forEach(k=>ensureFont(STYLE[k].font));
+document.getElementById("showGraphic").checked=showGraphic;
+document.getElementById("clause").checked=withClause;
+document.getElementById("disclText").value=disclaimerText;
+applyGraphicVis();
+applyDisclVis();
 graphicsUI();
+typoUI();
 renderCards();
 </script>
 </body>
