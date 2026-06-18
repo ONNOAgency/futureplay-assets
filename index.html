@@ -411,9 +411,9 @@ function buildSig(p){
   const row=(iconKey,href,text)=>''
     +'<tr><td style="padding:0 0 3px 0;line-height:0;font-size:0;">'
     +'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>'
-    +'<td width="16" valign="middle" style="width:16px;line-height:0;font-size:0;"><a href="'+href+'" style="text-decoration:none;"><img src="'+g(iconKey)+'" width="16" height="16" alt="" style="display:block;width:16px;height:16px;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></a></td>'
+    +'<td width="16" valign="middle" style="width:16px;line-height:0;font-size:0;"><a href="'+href+'" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><img src="'+g(iconKey)+'" width="16" height="16" alt="" style="display:block;width:16px;height:16px;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></a></td>'
     +'<td width="9" style="width:9px;font-size:1px;line-height:1px;">&nbsp;</td>'
-    +'<td valign="middle" style="'+fc(D)+'line-height:'+dLH+'px;'+EX+'"><a href="'+href+'" style="'+fc(D)+'line-height:'+dLH+'px;color:'+grey+';text-decoration:none;">'+escHTML(text)+'</a></td>'
+    +'<td valign="middle" style="'+fc(D)+'line-height:'+dLH+'px;'+EX+'"><a href="'+href+'" target="_blank" rel="noopener noreferrer" style="'+fc(D)+'line-height:'+dLH+'px;color:'+grey+';text-decoration:none;">'+escHTML(text)+'</a></td>'
     +'</tr></table></td></tr>';
 
   const nameRow='<tr><td style="padding:0 0 3px 0;'+fc(N)+'line-height:'+nLH+'px;'+EX+'"><span style="'+fc(N)+'line-height:'+nLH+'px;color:'+(N.color||"#24B3FF")+';">'+escHTML(name)+'</span></td></tr>';
@@ -421,11 +421,11 @@ function buildSig(p){
   const titleRow='<tr><td style="padding:0 0 5px 0;'+fc(D)+'line-height:'+dLH+'px;'+EX+'"><span style="'+fc(D)+'line-height:'+dLH+'px;letter-spacing:.4px;color:'+grey+';text-transform:uppercase;">'+escHTML(titleTxt)+'</span></td></tr>';
 
   const linksRow='<tr><td style="padding:2px 0 0 0;'+fc(W)+'line-height:'+wLH+'px;'+EX+'">'
-    +'<a href="'+SHARED.web+'" style="'+fc(W)+'line-height:'+wLH+'px;color:'+grey+';text-decoration:none;">'+SHARED.webLabel+'</a>'
+    +'<a href="'+SHARED.web+'" target="_blank" rel="noopener noreferrer" style="'+fc(W)+'line-height:'+wLH+'px;color:'+grey+';text-decoration:none;">'+SHARED.webLabel+'</a>'
     +'<span style="'+fc(W,null,400)+'color:'+sep+';">&nbsp;&nbsp;|&nbsp;&nbsp;</span>'
-    +'<a href="'+SHARED.linkedin+'" style="'+fc(W,null,400)+'line-height:'+wLH+'px;color:'+grey+';text-decoration:none;">LinkedIn</a>'
+    +'<a href="'+SHARED.linkedin+'" target="_blank" rel="noopener noreferrer" style="'+fc(W,null,400)+'line-height:'+wLH+'px;color:'+grey+';text-decoration:none;">LinkedIn</a>'
     +'<span style="'+fc(W,null,400)+'color:'+sep+';">&nbsp;&nbsp;|&nbsp;&nbsp;</span>'
-    +'<a href="'+SHARED.instagram+'" style="'+fc(W,null,400)+'line-height:'+wLH+'px;color:'+grey+';text-decoration:none;">Instagram</a>'
+    +'<a href="'+SHARED.instagram+'" target="_blank" rel="noopener noreferrer" style="'+fc(W,null,400)+'line-height:'+wLH+'px;color:'+grey+';text-decoration:none;">Instagram</a>'
     +'</td></tr>';
 
   const colspan = showGraphic ? 5 : 3;
