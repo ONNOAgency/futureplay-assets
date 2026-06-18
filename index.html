@@ -400,7 +400,7 @@ const lh = (size, ratio)=>Math.max(1, Math.round(size*ratio));
 
 function buildSig(p){
   const EX="mso-line-height-rule:exactly;";
-  const grey="#5D5D5D", ink="#3F3F3F", sep="#C7CDD2", disclCol="#9AA0A6";
+  const grey="#5C5C5C", ink="#3F3F3F", sep="#C7CDD2", disclCol="#9AA0A6"; // grey = FuturePlay logo grey (title + details)
   const g=src;
   const name=(p.name||"").trim() || "[ Your name ]";
   const titleTxt=p.title || "[ add title ]";
@@ -413,7 +413,7 @@ function buildSig(p){
     +'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>'
     +'<td width="16" valign="middle" style="width:16px;line-height:0;font-size:0;"><a href="'+href+'" style="text-decoration:none;"><img src="'+g(iconKey)+'" width="16" height="16" alt="" style="display:block;width:16px;height:16px;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;"></a></td>'
     +'<td width="9" style="width:9px;font-size:1px;line-height:1px;">&nbsp;</td>'
-    +'<td valign="middle" style="'+fc(D)+'line-height:'+dLH+'px;'+EX+'"><a href="'+href+'" style="'+fc(D)+'line-height:'+dLH+'px;color:'+ink+';text-decoration:none;">'+escHTML(text)+'</a></td>'
+    +'<td valign="middle" style="'+fc(D)+'line-height:'+dLH+'px;'+EX+'"><a href="'+href+'" style="'+fc(D)+'line-height:'+dLH+'px;color:'+grey+';text-decoration:none;">'+escHTML(text)+'</a></td>'
     +'</tr></table></td></tr>';
 
   const nameRow='<tr><td style="padding:0 0 3px 0;'+fc(N)+'line-height:'+nLH+'px;'+EX+'"><span style="'+fc(N)+'line-height:'+nLH+'px;color:'+(N.color||"#24B3FF")+';">'+escHTML(name)+'</span></td></tr>';
